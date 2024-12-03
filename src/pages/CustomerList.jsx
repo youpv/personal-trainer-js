@@ -12,8 +12,7 @@
 import { useState, useEffect } from 'react';
 import { 
   DataGrid, 
-  GridActionsCellItem,
-  GridToolbar 
+  GridActionsCellItem, 
 } from '@mui/x-data-grid';
 import { 
   TextField, 
@@ -24,7 +23,7 @@ import {
   DialogTitle, 
   DialogContent, 
   DialogActions, 
-  Tooltip 
+  Tooltip, 
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -361,46 +360,46 @@ const CustomerList = () => {
       headerName: 'Actions',
       flex: 1,
       getActions: (params) => [
-        <Tooltip title="Edit customer" arrow>
-          <span>
-            <GridActionsCellItem
-              icon={<EditIcon />}
-              label="Edit"
-              onClick={() => {
-                setSelectedCustomer(params.row);
-                setIsEditing(true);
-                setCustomerDialogOpen(true);
-              }}
-              showInMenu={false}
-            />
-          </span>
-        </Tooltip>,
-        <Tooltip title="Delete customer" arrow>
-          <span>
-            <GridActionsCellItem
-              icon={<DeleteIcon />}
-              label="Delete"
-              onClick={() => {
-                setSelectedCustomerUrl(params.row._links.self.href);
-                setDeleteDialogOpen(true);
-              }}
-              showInMenu={false}
-            />
-          </span>
-        </Tooltip>,
-        <Tooltip title="Add training session" arrow>
-          <span>
-            <GridActionsCellItem
-              icon={<FitnessCenterIcon />}
-              label="Add Training"
-              onClick={() => {
-                setSelectedCustomerUrl(params.row._links.self.href);
-                setTrainingDialogOpen(true);
-              }}
-              showInMenu={false}
-            />
-          </span>
-        </Tooltip>,
+        <GridActionsCellItem
+          icon={
+            <Tooltip title="Edit customer" arrow>
+              <EditIcon />
+            </Tooltip>
+          }
+          label="Edit"
+          onClick={() => {
+            setSelectedCustomer(params.row);
+            setIsEditing(true);
+            setCustomerDialogOpen(true);
+          }}
+          showInMenu={false}
+        />,
+        <GridActionsCellItem
+          icon={
+            <Tooltip title="Delete customer" arrow>
+              <DeleteIcon />
+            </Tooltip>
+          }
+          label="Delete"
+          onClick={() => {
+            setSelectedCustomerUrl(params.row._links.self.href);
+            setDeleteDialogOpen(true);
+          }}
+          showInMenu={false}
+        />,
+        <GridActionsCellItem
+          icon={
+            <Tooltip title="Add training session" arrow>
+              <FitnessCenterIcon />
+            </Tooltip>
+          }
+          label="Add Training"
+          onClick={() => {
+            setSelectedCustomerUrl(params.row._links.self.href);
+            setTrainingDialogOpen(true);
+          }}
+          showInMenu={false}
+        />,
       ],
     },
   ];
